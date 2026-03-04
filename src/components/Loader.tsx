@@ -29,19 +29,7 @@ export default function Loader({ onComplete }: LoaderProps) {
           duration: 0.5,
           ease: "power3.out",
         }
-      );
-
-      // Phase 2: Morph into the rounded rectangle (shrink inward to reveal beige edges)
-      tl.to(
-        innerRef.current,
-        {
-          margin: "16px",
-          borderRadius: "2rem",
-          duration: 0.6,
-          ease: "power3.inOut",
-        },
-        "+=0.15"
-      );
+      );      
 
       // Phase 3: Animate progress bar from 0% to 100%
       tl.to(
@@ -63,14 +51,7 @@ export default function Loader({ onComplete }: LoaderProps) {
       // Phase 4: Brief hold
       tl.to({}, { duration: 0.3 });
 
-      // Phase 5: Morph back to full-screen (remove margin + radius) before sliding up
-      tl.to(innerRef.current, {
-        margin: "0px",
-        borderRadius: "0rem",
-        duration: 0.35,
-        ease: "power2.inOut",
-      });
-
+     
       // Phase 6: Slide the entire loader up
       tl.to(loaderRef.current, {
         yPercent: -100,
