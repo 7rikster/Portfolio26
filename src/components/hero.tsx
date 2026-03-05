@@ -33,7 +33,7 @@ export default function Hero() {
     if (!heroSectionRef.current) return;
 
     gsap.to(heroSectionRef.current, {
-      padding: "28px",
+      padding: "36px",
       borderRadius: "1rem",
       scrollTrigger: {
         trigger: heroSectionRef.current,

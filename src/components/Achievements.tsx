@@ -5,6 +5,7 @@ import { achievements } from "@/data/achievementData";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { ExternalLink } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,7 +178,6 @@ export default function Achievements() {
                 />
 
                 <div className="flex items-baseline gap-4 md:gap-8 py-6 md:py-8">
-                  {/* Index number */}
                   <span
                     className="text-xs md:text-sm font-mono shrink-0"
                     style={{ color: "#555", minWidth: "2rem" }}
@@ -185,12 +185,11 @@ export default function Achievements() {
                     _{String(index + 1).padStart(2, "0")}.
                   </span>
 
-                  {/* Title + description */}
                   <div className="flex-1 min-w-0">
                     <h3
-                      className="achievement-title text-4xl md:text-6xl lg:text-7xl leading-none mb-2 transition-colors duration-300"
+                      className="achievement-title text-3xl md:text-5xl lg:text-7xl leading-none mb-2 transition-colors duration-300 flex items-center gap-2"
                       style={{
-                        color: isCurrent ? "#4ade80" : "#e5e5e5",
+                        color: isCurrent ? "#e5e5e5" : "#e5e5e5",
                       }}
                     >
                       {achievement.title}
@@ -202,7 +201,7 @@ export default function Achievements() {
                             animation: "fadeSlideIn 0.3s ease forwards",
                           }}
                         >
-                          ↗
+                          <ExternalLink />
                         </span>
                       )}
                     </h3>
@@ -240,7 +239,7 @@ export default function Achievements() {
             ? "translateY(-50%) translateX(0) scale(1)"
             : "translateY(-50%) translateX(60px) scale(0.95)",
           width: "35vw",
-          maxWidth: "500px",
+          maxWidth: "450px",
           opacity: isHovering ? 1 : 0,
           transition:
             "opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
