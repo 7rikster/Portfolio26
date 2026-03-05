@@ -7,6 +7,7 @@ import gsap from "gsap";
 import {ScrollTrigger} from "gsap/all";
 import Hero from "@/components/hero";
 import About from "@/components/about";
+import Achievements from "@/components/Achievements";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,7 @@ export default function Home() {
       >
         <Hero />
         <About/>
+        <Achievements />
       </main>
     
   );
