@@ -1,31 +1,27 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Loader from "@/components/Loader";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import {ScrollTrigger} from "gsap/all";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import Achievements from "@/components/Achievements";
 import Header from "@/components/header";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Home() {
+  const [loaded, setLoaded] = useState(false);
 
+  const handleLoaderComplete = useCallback(() => {
+    setLoaded(true);
+  }, []);
 
   return (
-   
       <main
         className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
         style={{ background: "black" }}
       >
-        <Header/>
-        <Hero />
+        <Header loaded={loaded} />
+        <Hero onLoaderComplete={handleLoaderComplete} />
         <About/>
         <Achievements />
       </main>
-    
   );
 }

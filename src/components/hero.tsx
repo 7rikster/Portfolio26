@@ -8,7 +8,11 @@ import {ScrollTrigger} from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero() {
+interface HeroProps {
+  onLoaderComplete?: () => void;
+}
+
+export default function Hero({ onLoaderComplete }: HeroProps) {
   const [loaded, setLoaded] = useState(false);
   const heroSectionRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +30,8 @@ export default function Hero() {
     window.scrollTo(0, 0);
     document.body.style.overflow = "";
     setLoaded(true);
-  }, []);
+    onLoaderComplete?.();
+  }, [onLoaderComplete]);
 
   // Shrink hero quickly when user starts scrolling
   useGSAP(() => {

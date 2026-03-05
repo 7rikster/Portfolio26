@@ -37,10 +37,14 @@ interface HeaderItem {
 
 type HeaderContents = HeaderItem[];
 
-function Header() {
+interface HeaderProps {
+  loaded?: boolean;
+}
+
+function Header({ loaded = false }: HeaderProps) {
   const lastScrollYRef = useRef(0);
   const [isNavVisible, setIsNavVisible] = useState(true);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
   const navContainerRef = useRef<HTMLDivElement | null>(null);
 
   const { y: currentScrollY } = useWindowScroll();
@@ -50,10 +54,6 @@ function Header() {
 
   let headerContents = HeaderContents;
 
-  function handleDashboardClick() {
-    setDropdownOpen(false);
-    
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,17 +78,35 @@ function Header() {
   }, []);
 
   useEffect(() => {
+    if (loaded && !hasEntered) {
+      setHasEntered(true);
+      gsap.fromTo(
+        navContainerRef.current,
+        { y: -100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power3.out",
+        }
+      );
+    }
+  }, [loaded, hasEntered]);
+
+ useEffect(() => {
+    if (!hasEntered) return;
     gsap.to(navContainerRef.current, {
       y: isNavVisible ? 0 : -100,
       opacity: isNavVisible ? 1 : 0,
-      duration: 0.1,
+      duration: 0.2,
     });
-  }, [isNavVisible]);
+  }, [isNavVisible, hasEntered]);
 
   return (
     <div
       ref={navContainerRef}
       className={`fixed  w-[94%] flex justify-center top-2 sm:top-4 z-500 h-12 sm:h-18 border-none transition-all duration-700  `}
+      style={{ opacity: 0, transform: "translateY(-120px)" }}
     >
       <header
         className={`absolute top-1/2 w-full max-w-7xl -translate-y-1/2 px-4 border border-white/12 rounded-lg bg-black/90 backdrop-blur-lg`}
