@@ -136,7 +136,7 @@ export default function Achievements() {
       <div ref={headerRef} className="mb-16">
         <p
           className="text-sm tracking-[0.3em] uppercase flex items-center gap-3"
-          style={{ color: "#888" }}
+          style={{ color: "#aaa" }}
         >
           <span style={{ color: "#aaa", fontSize: "1.1rem" }}>✦</span>
           ACHIEVEMENTS

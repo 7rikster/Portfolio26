@@ -86,7 +86,7 @@ function Header({ loaded = false }: HeaderProps) {
         {
           y: 0,
           opacity: 1,
-          duration: 0.5,
+          duration: 0.3,
           ease: "power3.out",
         }
       );

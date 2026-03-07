@@ -20,7 +20,7 @@ export default function Home() {
       >
         <Header loaded={loaded} />
         <Hero onLoaderComplete={handleLoaderComplete} />
-        <About/>
+        <About showMoreButton={true} />
         <Achievements />
       </main>
   );
