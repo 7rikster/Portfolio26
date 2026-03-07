@@ -52,6 +52,9 @@ function Header({ loaded = false }: HeaderProps) {
   const router = useRouter();
   const pathName = usePathname();
 
+  // On non-home pages, the header should show immediately
+  const isHome = pathName === "/";
+
   let headerContents = HeaderContents;
 
 
@@ -77,21 +80,32 @@ function Header({ loaded = false }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // On non-home pages, show immediately. On home, wait for loader event or loaded prop.
   useEffect(() => {
-    if (loaded && !hasEntered) {
+    if (hasEntered) return;
+
+    const enter = () => {
       setHasEntered(true);
       gsap.fromTo(
         navContainerRef.current,
         { y: -100, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.3,
-          ease: "power3.out",
-        }
+        { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }
       );
+    };
+
+    if (!isHome) {
+      // Non-home pages: show header immediately
+      enter();
+    } else if (loaded) {
+      // Home page with loaded prop already true (e.g. back-navigation)
+      enter();
+    } else {
+      // Home page: listen for the loader complete event
+      const handler = () => enter();
+      window.addEventListener("loaderComplete", handler);
+      return () => window.removeEventListener("loaderComplete", handler);
     }
-  }, [loaded, hasEntered]);
+  }, [isHome, loaded, hasEntered]);
 
  useEffect(() => {
     if (!hasEntered) return;

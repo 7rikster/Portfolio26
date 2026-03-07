@@ -10,6 +10,11 @@ export const HeaderContents = [
         link: "/about",
     },
     {
+        title: "Projects",
+        type: "text",
+        link: "/projects",
+    },
+    {
         title: "Achievements",
         type: "text",
         link: "/achievements",
