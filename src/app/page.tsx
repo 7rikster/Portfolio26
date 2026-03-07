@@ -1,26 +1,22 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import Achievements from "@/components/Achievements";
 import Header from "@/components/header";
 import TechStack from "@/components/techStack";
 
-export default function Home() {
-  const [skipLoader, setSkipLoader] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+// Module-level flag: survives client-side navigation, resets on full page reload
+let hasVisitedHome = false;
 
-  // Check sessionStorage on mount to see if loader already played
-  useEffect(() => {
-    if (sessionStorage.getItem("loaderPlayed") === "true") {
-      setSkipLoader(true);
-      setLoaded(true); // Header appears immediately
-    }
-  }, []);
+export default function Home() {
+  // If we've visited before (back-navigation), skip the loader
+  const [skipLoader] = useState(() => hasVisitedHome);
+  const [loaded, setLoaded] = useState(() => hasVisitedHome);
 
   const handleLoaderComplete = useCallback(() => {
-    sessionStorage.setItem("loaderPlayed", "true");
+    hasVisitedHome = true;
     setLoaded(true);
   }, []);
 
