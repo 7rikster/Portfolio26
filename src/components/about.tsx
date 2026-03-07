@@ -46,7 +46,7 @@ export default function About({ showMoreButton }: AboutProps) {
     return (
         <div className="flex flex-col items-center justify-center py-20" ref={sectionRef}>
             <div className="flex flex-col items-center justify-center" ref={headerRef}>
-                <h1 className="tracking-wider" style={{ color: "#aaa", fontSize: "1.1rem" }}>- A LITTLE ABOUT ME</h1>
+                <h1 className="text-sm tracking-[0.3em] uppercase flex items-center gap-3" style={{ color: "#aaa"}}>- A LITTLE ABOUT ME</h1>
                 <h1 className="text-2xl md:text-4xl font-semibold tracking-tight p-2 md:p-4 mb-6">Building efficient solutions with code</h1>
             </div>
             <div className="w-full max-w-3xl text-center flex flex-col gap-3 text-[#aaa]" ref={paraRef}>

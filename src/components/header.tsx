@@ -109,7 +109,7 @@ function Header({ loaded = false }: HeaderProps) {
       style={{ opacity: 0, transform: "translateY(-120px)" }}
     >
       <header
-        className={`absolute top-1/2 w-full max-w-7xl -translate-y-1/2 px-4 border border-white/12 rounded-lg bg-black/90 backdrop-blur-lg`}
+        className={`absolute top-1/2 w-full max-w-7xl -translate-y-1/2 sm:px-4 border border-white/12 rounded-lg bg-black/90 backdrop-blur-lg`}
       >
         <nav className="flex size-full items-center justify-between p-1 sm:p-2 ">
           

@@ -5,6 +5,7 @@ import Hero from "@/components/hero";
 import About from "@/components/about";
 import Achievements from "@/components/Achievements";
 import Header from "@/components/header";
+import TechStack from "@/components/techStack";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
         <Header loaded={loaded} />
         <Hero onLoaderComplete={handleLoaderComplete} />
         <About showMoreButton={true} />
+        <TechStack/>
         <Achievements />
       </main>
   );
