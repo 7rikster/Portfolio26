@@ -28,7 +28,7 @@ export default function Home() {
         <Hero onLoaderComplete={handleLoaderComplete} skipLoader={skipLoader} />
         <About showMoreButton={true} />
         <TechStack/>
-        <Projects />
+        <Projects showViewMore={true}/>
         <Achievements />
       </main>
   );

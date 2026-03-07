@@ -5,7 +5,11 @@ import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import { Button } from "./ui/button";
 
-export default function Projects() {
+interface ProjectCardProps {
+    showViewMore: Boolean;  
+}
+
+export default function Projects({ showViewMore }: ProjectCardProps) {
     return (
         <section className="w-full py-24 px-6 md:px-16 lg:px-24" style={{ background: "#030303" }}>
             {/* Header */}
@@ -79,21 +83,25 @@ export default function Projects() {
                 <div className="border-t border-white/[0.08]" />
 
                 {/* View All Projects button */}
-                <motion.div className="flex justify-center mt-10"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                >
-                    <Link href="/projects">
-                        <Button
-                            variant="outline"
-                            className="cursor-pointer flex items-center justify-center gap-2"
+                {
+                    showViewMore && (
+                        <motion.div className="flex justify-center mt-10"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
                         >
-                            View All Projects <MoveRight size={16} />
-                        </Button>
-                    </Link>
-                </motion.div>
+                            <Link href="/projects">
+                                <Button
+                                    variant="outline"
+                                    className="cursor-pointer flex items-center justify-center gap-2"
+                                >
+                                    View All Projects <MoveRight size={16} />
+                                </Button>
+                            </Link>
+                        </motion.div>
+                    )
+                }
             </div>
         </section>
     );
