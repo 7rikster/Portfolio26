@@ -133,14 +133,9 @@ export default function Achievements() {
       onMouseLeave={() => setHoveredIndex(null)}
     >
       {/* Section Header */}
-      <div ref={headerRef} className="mb-16">
-        <p
-          className="text-sm tracking-[0.3em] uppercase flex items-center gap-3"
-          style={{ color: "#aaa" }}
-        >
-          <span style={{ color: "#aaa", fontSize: "1.1rem" }}>✦</span>
-          ACHIEVEMENTS
-        </p>
+      <div ref={headerRef} className="mb-16 flex  flex-col items-center justify-center">
+        <h1 className="text-sm tracking-[0.3em] uppercase flex items-center gap-3" style={{ color: "#aaa"}}>- ACHIEVEMENTS</h1>
+        <h1 className="text-2xl md:text-4xl font-semibold tracking-tight p-2 md:p-4 mb-6">My Coding Achievements</h1>
       </div>
 
       {/* Achievement list — always full width */}
