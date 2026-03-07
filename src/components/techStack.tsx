@@ -1,58 +1,17 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { techStackCategories } from "@/data/techStackData";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function TechStack() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const headerRef = useRef<HTMLDivElement>(null);
-    const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 75%",
-                once: true,
-            },
-        });
-
-        tl.from(headerRef.current, {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: "power3.out",
-        });
-
-        rowRefs.current.forEach((row) => {
-            if (row) {
-                tl.from(
-                    row,
-                    {
-                        opacity: 0,
-                        y: 25,
-                        duration: 0.6,
-                        ease: "power3.out",
-                    },
-                    "-=0.35"
-                );
-            }
-        });
-    }, { scope: sectionRef });
-
     return (
-        <div
-            className="flex flex-col items-center justify-center py-20"
-            ref={sectionRef}
-        >
+        <div className="flex flex-col items-center justify-center py-20">
             {/* Header */}
-            <div
+            <motion.div
                 className="flex flex-col items-center justify-center mb-12"
-                ref={headerRef}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
             >
                 <h1
                     className="text-sm tracking-[0.3em] uppercase flex items-center gap-3"
@@ -63,15 +22,22 @@ export default function TechStack() {
                 <h1 className="text-2xl md:text-4xl font-semibold tracking-tight p-2 md:p-4">
                     Tools I Work With
                 </h1>
-            </div>
+            </motion.div>
 
             {/* Category Rows */}
             <div className="w-full max-w-7xl px-4">
                 {techStackCategories.map((category, index) => (
-                    <div
+                    <motion.div
                         key={category.id}
-                        ref={(el) => { rowRefs.current[index] = el; }}
                         className="flex flex-col md:flex-row md:items-center border-t border-white/10 py-8 gap-4 md:gap-8"
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeOut",
+                            delay: index * 0.05,
+                        }}
                     >
                         {/* Category Name — Left Column */}
                         <div className="md:w-1/4 shrink-0">
@@ -96,7 +62,7 @@ export default function TechStack() {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>

@@ -19,28 +19,33 @@ export default function About({ showMoreButton }: AboutProps) {
     const paraRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        if (headerRef.current) {
+            gsap.from(headerRef.current, {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: headerRef.current,
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            });
+        }
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 75%",
-                once: true
-            }
-        });
-
-        tl.from(headerRef.current, {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: "power3.out",
-        })
-        .from(paraRef.current, {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: "power3.out",
-        }, "-=0.4");
-
+        if (paraRef.current) {
+            gsap.from(paraRef.current, {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: paraRef.current,
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            });
+        }
     }, { scope: sectionRef });
 
     return (

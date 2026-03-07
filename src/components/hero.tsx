@@ -10,21 +10,33 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface HeroProps {
   onLoaderComplete?: () => void;
+  skipLoader?: boolean;
 }
 
-export default function Hero({ onLoaderComplete }: HeroProps) {
+export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps) {
   const [loaded, setLoaded] = useState(false);
   const heroSectionRef = useRef<HTMLDivElement>(null);
 
-  // Lock scroll while loader is active & reset scroll position on mount
+  // If skipLoader, immediately mark as loaded and skip all loader logic
   useEffect(() => {
+    if (skipLoader) {
+      setLoaded(true);
+      onLoaderComplete?.();
+    }
+  }, [skipLoader, onLoaderComplete]);
+
+  // Lock scroll while loader is active & reset scroll position on mount
+  // Only runs when loader is shown (first visit)
+  useEffect(() => {
+    if (skipLoader) return;
+
     window.scrollTo(0, 0);
     document.body.style.overflow = "hidden";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [skipLoader]);
 
   const handleLoaderComplete = useCallback(() => {
     window.scrollTo(0, 0);
@@ -51,7 +63,7 @@ export default function Hero({ onLoaderComplete }: HeroProps) {
 
   return (
     <>
-      <Loader onComplete={handleLoaderComplete} />
+      {!skipLoader && <Loader onComplete={handleLoaderComplete} />}
 
       {/* Hero Section - black outer, beige inner */}
       <div
