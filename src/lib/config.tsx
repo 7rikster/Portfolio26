@@ -20,9 +20,9 @@ export const HeaderContents = [
         link: "/achievements",
     },
     {
-        title: "Projects",
+        title: "Workshop",
         type: "text",
-        link: "/projects",
+        link: "/workshop",
     },
     {
         title: "Contact",

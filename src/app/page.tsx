@@ -6,6 +6,7 @@ import About from "@/components/about";
 import Achievements from "@/components/Achievements";
 import TechStack from "@/components/techStack";
 import Projects from "@/components/projects";
+import Building from "@/components/Building";
 
 // Module-level flag: survives client-side navigation, resets on full page reload
 let hasVisitedHome = false;
@@ -30,6 +31,7 @@ export default function Home() {
         <TechStack/>
         <Projects showViewMore={true}/>
         <Achievements />
+        <Building />
       </main>
   );
 }
