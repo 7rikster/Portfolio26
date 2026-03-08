@@ -166,5 +166,417 @@ export const projects: Project[] = [
             "Maintaining responsive performance with dynamic expense lists",
             "Structuring reusable components for scalability"
         ]
-    }
+    },
+    {
+      id: 2,
+      title: "Xplorer",
+      slug: "xplorer",
+      year: 2025,
+
+      tagline: "Discover places, plan journeys, and explore the world seamlessly.",
+
+      description:
+        "Xplorer is a modern travel exploration platform that helps users discover destinations, explore attractions, and plan trips with a visually rich and interactive interface.",
+
+      role: "Full Stack Developer",
+      duration: "3 weeks",
+
+      featured: true,
+
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "TailwindCSS",
+        "GSAP",
+        "React",
+        "Map APIs",
+      ],
+
+      links: {
+        github: "https://github.com/7rikster/xplorer",
+        live: "https://xplorer.vercel.app",
+      },
+
+      heroImage: "/projects/xplorer/hero.png",
+
+      images: [
+        "/projects/xplorer/1.png",
+        "/projects/xplorer/2.png",
+        "/projects/xplorer/3.png",
+        "/projects/xplorer/4.png",
+      ],
+
+      highlights: [
+        "Interactive destination exploration interface",
+        "Smooth page transitions using GSAP",
+        "Fully responsive modern UI",
+        "Fast navigation using Next.js routing",
+        "Modular architecture for scalability",
+      ],
+
+      overview: {
+        problem:
+          "Travelers often rely on multiple fragmented platforms to discover destinations, explore attractions, and plan their journeys.",
+
+        solution:
+          "Xplorer provides a unified platform where users can explore destinations, view curated attractions, and navigate through a visually immersive interface designed for discovery.",
+
+        impact: [
+          "Simplified destination discovery",
+          "Improved user engagement through interactive UI",
+          "Faster navigation with optimized frontend architecture",
+        ],
+      },
+
+      architecture: [
+        {
+          title: "Component Based UI",
+          description:
+            "Built using reusable React components to ensure maintainability and scalability of the interface.",
+        },
+        {
+          title: "Static Data Layer",
+          description:
+            "Project and destination data are managed using TypeScript files instead of a database for simplicity and fast builds.",
+        },
+        {
+          title: "Next.js Routing",
+          description:
+            "Dynamic routing enables seamless navigation between destinations and detail pages.",
+        },
+      ],
+
+      features: [
+        {
+          title: "Destination Discovery",
+          description:
+            "Users can explore curated travel destinations with detailed information and images.",
+        },
+        {
+          title: "Interactive UI",
+          description:
+            "Smooth animations and transitions enhance the user experience and make exploration engaging.",
+        },
+        {
+          title: "Responsive Design",
+          description:
+            "Fully optimized for desktop, tablet, and mobile devices.",
+        },
+        {
+          title: "Fast Page Navigation",
+          description:
+            "Next.js optimized routing ensures quick transitions between pages.",
+        },
+      ],
+
+      engineering: [
+        {
+          title: "Performance Optimization",
+          description:
+            "Optimized images and efficient rendering techniques were used to maintain fast loading times.",
+        },
+        {
+          title: "Animation Architecture",
+          description:
+            "GSAP animations were structured carefully to avoid layout shifts and ensure smooth transitions.",
+        },
+        {
+          title: "Clean Code Structure",
+          description:
+            "Implemented modular folder structure and TypeScript types to improve maintainability.",
+        },
+      ],
+
+      learnings: [
+        "Designing scalable component architectures in React",
+        "Implementing advanced UI animations with GSAP",
+        "Structuring large frontend projects effectively",
+        "Improving UX through motion and visual hierarchy",
+      ],
+
+      challenges: [
+        "Designing smooth animations without impacting performance",
+        "Maintaining clean component structure as the project grew",
+        "Balancing visual richness with fast loading times",
+      ],
+  },
+  {
+    id: 3,
+    title: "Learn.com",
+    slug: "learn-com",
+    year: 2025,
+
+    tagline:
+      "A modern learning platform where instructors create courses and students learn through structured video lessons.",
+
+    description:
+      "Learn.com is a full-stack Learning Management System (LMS) that allows instructors to publish courses and students to purchase and learn them through structured video content. The platform focuses on clean UX, scalable architecture, and smooth course navigation.",
+
+    role: "Full Stack Developer",
+    duration: "4 weeks",
+
+    featured: true,
+
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Stripe",
+      "Cloudinary",
+    ],
+
+    links: {
+      github: "https://github.com/7rikster/Learn.com",
+      live: "https://learn-com.vercel.app",
+    },
+
+    heroImage: "/projects/learn/hero.png",
+
+    images: [
+      "/projects/learn/1.png",
+      "/projects/learn/2.png",
+      "/projects/learn/3.png",
+      "/projects/learn/4.png",
+    ],
+
+    highlights: [
+      "Full LMS platform with instructor and student roles",
+      "Course purchase and enrollment system",
+      "Structured video-based course learning",
+      "Secure payment integration",
+      "Scalable backend API architecture",
+    ],
+
+    overview: {
+      problem:
+        "Online learning platforms are often cluttered and difficult for instructors to manage while also providing a poor learning experience for students.",
+
+      solution:
+        "Learn.com provides a streamlined platform where instructors can easily create and publish courses while students can browse, purchase, and learn through structured video lectures.",
+
+      impact: [
+        "Simplified course publishing for instructors",
+        "Smooth learning experience for students",
+        "Scalable LMS architecture for future growth",
+      ],
+    },
+
+    architecture: [
+      {
+        title: "Frontend Application",
+        description:
+          "Built with Next.js and TypeScript to create a fast and scalable user interface for browsing courses and learning content.",
+      },
+      {
+        title: "Backend API",
+        description:
+          "Node.js and Express power a REST API that handles authentication, course management, purchases, and user data.",
+      },
+      {
+        title: "Database Layer",
+        description:
+          "MongoDB stores users, courses, lectures, and enrollment data in a flexible schema suitable for educational content.",
+      },
+      {
+        title: "Media Storage",
+        description:
+          "Video lectures and course assets are stored and delivered using Cloudinary for optimized streaming.",
+      },
+    ],
+
+    features: [
+      {
+        title: "Instructor Course Creation",
+        description:
+          "Instructors can create courses, upload lectures, and manage course content through an intuitive dashboard.",
+      },
+      {
+        title: "Course Marketplace",
+        description:
+          "Students can browse available courses, view course details, and purchase them securely.",
+      },
+      {
+        title: "Video Learning Experience",
+        description:
+          "Students can watch structured video lectures and navigate lessons easily within each course.",
+      },
+      {
+        title: "User Authentication",
+        description:
+          "Secure login and role-based access for instructors and students.",
+      },
+      {
+        title: "Course Enrollment",
+        description:
+          "After purchasing a course, students gain instant access to all course lectures.",
+      },
+    ],
+
+    engineering: [
+      {
+        title: "Role-Based Access Control",
+        description:
+          "Implemented separate permissions for instructors and students to ensure secure course management.",
+      },
+      {
+        title: "Scalable API Design",
+        description:
+          "Backend endpoints were structured to handle course creation, purchases, and lecture management efficiently.",
+      },
+      {
+        title: "Optimized Media Delivery",
+        description:
+          "Video lectures are served using optimized media delivery to ensure smooth playback.",
+      },
+    ],
+
+    learnings: [
+      "Designing scalable full-stack applications",
+      "Implementing role-based access systems",
+      "Managing video content and media storage",
+      "Building secure payment workflows",
+    ],
+
+    challenges: [
+      "Handling course access after purchase",
+      "Managing large video assets efficiently",
+      "Designing a clean course navigation experience",
+    ],
+  },
+  {
+    id: 4,
+    title: "Awwwards",
+    slug: "awwwards",
+    year: 2025,
+
+    tagline:
+      "A visually immersive frontend experience inspired by award-winning web design.",
+
+    description:
+      "Awwwards is a modern frontend showcase project focused on high-end animations and interactive UI. Inspired by award-winning websites, the project demonstrates advanced motion design using GSAP along with modern frontend technologies to create a smooth and visually engaging browsing experience.",
+
+    role: "Frontend Developer",
+    duration: "2 weeks",
+
+    featured: true,
+
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "GSAP",
+    ],
+
+    links: {
+      github: "https://github.com/yourusername/awwwards",
+      live: "https://awwwards-clone.vercel.app",
+    },
+
+    heroImage: "/projects/awwwards/hero.png",
+
+    images: [
+      "/projects/awwwards/1.png",
+      "/projects/awwwards/2.png",
+      "/projects/awwwards/3.png",
+      "/projects/awwwards/4.png",
+    ],
+
+    highlights: [
+      "Advanced GSAP powered animations",
+      "Smooth page transitions and scroll effects",
+      "Modern award-style website layout",
+      "Highly interactive UI components",
+      "Optimized animation performance",
+    ],
+
+    overview: {
+      problem:
+        "Most developer portfolios focus only on functionality and often lack the level of motion design and visual polish seen in award-winning websites.",
+
+      solution:
+        "The project recreates a premium web experience by implementing advanced animations, interactive components, and cinematic transitions using GSAP and modern frontend tooling.",
+
+      impact: [
+        "Demonstrates advanced frontend animation skills",
+        "Improves user engagement through motion design",
+        "Showcases modern UI/UX engineering practices",
+      ],
+    },
+
+    architecture: [
+      {
+        title: "Component Driven UI",
+        description:
+          "Built using modular React components to keep the animation logic isolated and maintainable.",
+      },
+      {
+        title: "Animation Layer",
+        description:
+          "GSAP timelines orchestrate complex animations including scroll triggers, page transitions, and element reveals.",
+      },
+      {
+        title: "Responsive Layout System",
+        description:
+          "TailwindCSS utilities ensure the layout adapts seamlessly across devices.",
+      },
+    ],
+
+    features: [
+      {
+        title: "Scroll-Based Animations",
+        description:
+          "Sections animate dynamically based on scroll position, creating an immersive browsing experience.",
+      },
+      {
+        title: "Page Transitions",
+        description:
+          "Smooth transitions between sections and pages using GSAP timelines.",
+      },
+      {
+        title: "Interactive Hover Effects",
+        description:
+          "UI components respond to user interaction with subtle motion and visual feedback.",
+      },
+      {
+        title: "Cinematic Hero Section",
+        description:
+          "Large immersive hero layout with animated elements and layered visuals.",
+      },
+    ],
+
+    engineering: [
+      {
+        title: "GSAP Timeline Architecture",
+        description:
+          "Animations were structured using GSAP timelines to maintain synchronization and avoid performance issues.",
+      },
+      {
+        title: "Animation Performance Optimization",
+        description:
+          "Used transform-based animations and minimized layout thrashing for smooth rendering.",
+      },
+      {
+        title: "Clean Separation of Logic",
+        description:
+          "Animation logic was separated from UI components to keep the codebase clean and maintainable.",
+      },
+    ],
+
+    learnings: [
+      "Advanced GSAP animation techniques",
+      "Designing immersive web experiences",
+      "Structuring animation-heavy applications",
+      "Optimizing animation performance in the browser",
+    ],
+
+    challenges: [
+      "Managing complex animation timelines",
+      "Ensuring smooth performance across devices",
+      "Balancing visual richness with maintainable code structure",
+    ],
+  },
 ];

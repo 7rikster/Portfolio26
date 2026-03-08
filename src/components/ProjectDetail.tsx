@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { useScroll, useSpring, motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
@@ -53,9 +53,21 @@ const stagger: Variants = {
   },
 };
 
+
+
 export default function ProjectDetail({ project }: ProjectDetailProps) {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
   return (
     <div className="relative pt-18 sm:pt-24 md:pt-28 pb-20">
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[2px] bg-white origin-left z-50"
+      />
       {/* ─── Back Navigation ─── */}
       <motion.div
         className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 mb-6 md:mb-10"
@@ -210,6 +222,11 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           />
         </div>
       </motion.section>
+      <motion.div
+        className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent my-20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      />
 
       {/* ─── Overview: Problem → Solution → Impact ─── */}
       <section className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 mb-24">
