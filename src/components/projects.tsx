@@ -71,7 +71,7 @@ export default function Projects({ showViewMore }: ProjectCardProps) {
 
                                         {/* Description */}
                                         <p className="text-sm md:text-base text-[#999] leading-relaxed max-w-4xl mb-6">
-                                            {project.shortDescription}
+                                            {project.description}
                                         </p>
 
                                         {/* Tech stack tags */}
