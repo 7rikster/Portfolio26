@@ -61,9 +61,7 @@ export default function Footer() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         {/* ─── Top section ─── */}
-        <div className="px-8 sm:px-12 lg:px-16 pt-14 pb-10">
-          {/* CTA + Branding */}
-          
+        <div className="px-8 sm:px-12 lg:px-16 pt-14 pb-10">          
 
           {/* ─── Links grid ─── */}
           <motion.div
@@ -143,7 +141,7 @@ export default function Footer() {
               >
                 Availability
               </h3>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: "#4a3f35" }}>
+              <p className="text-sm leading-relaxed mb-4 italic" style={{ color: "#4a3f35" }}>
                 Currently available for freelance work, internships, and exciting
                 collaborations.
               </p>

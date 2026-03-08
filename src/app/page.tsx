@@ -8,6 +8,7 @@ import TechStack from "@/components/techStack";
 import Projects from "@/components/projects";
 import Building from "@/components/Building";
 import Contact from "@/components/Contact";
+import WhyHireMe from "@/components/WhyHireMe";
 
 // Module-level flag: survives client-side navigation, resets on full page reload
 let hasVisitedHome = false;
@@ -33,6 +34,7 @@ export default function Home() {
         <Projects showViewMore={true}/>
         <Achievements />
         <Building />
+        <WhyHireMe />
         <Contact />
       </main>
   );

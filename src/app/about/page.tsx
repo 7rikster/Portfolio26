@@ -1,4 +1,5 @@
 import About from "@/components/about";
+import WhyHireMe from "@/components/WhyHireMe";
 
 export default function AboutPage() {
     return (
@@ -7,6 +8,7 @@ export default function AboutPage() {
             style={{ background: "black" }}
         >
             <About showMoreButton={false} />
+            <WhyHireMe/>
         </main>
     );
 }
