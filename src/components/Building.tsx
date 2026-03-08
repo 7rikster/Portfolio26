@@ -145,7 +145,7 @@ export default function Building() {
               </div>
             </div>
 
-            <div className="flex items-end justify-between gap-6">
+            <div className="flex flex-col-reverse sm:flex-row sm:items-end sm:justify-between gap-5">
               <div className="flex-1 min-w-0">
                 <h3 className="text-xl sm:text-2xl font-semibold text-[#e5e5e5] mb-3 group-hover:text-white transition-colors">
                   {buildingProjects[0].title}
@@ -231,7 +231,7 @@ export default function Building() {
                 </div>
               </div>
 
-              <div className="flex items-end justify-between gap-5">
+              <div className="flex flex-col-reverse sm:flex-row sm:items-end sm:justify-between gap-5">
                 <div className="flex-1 min-w-0">
                   <h4 className="text-base sm:text-lg font-semibold text-[#e5e5e5] mb-2 group-hover:text-white transition-colors">
                     {project.title}
