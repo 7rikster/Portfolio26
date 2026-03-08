@@ -112,7 +112,7 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
     tl.fromTo(
       contentRef.current.querySelectorAll(".hero-cta"),
       { opacity: 0, y: 20, scale: 0.95 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1,clearProps: "transform" },
       1.0
     );
 
@@ -120,7 +120,7 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
     tl.fromTo(
       contentRef.current.querySelectorAll(".hero-social"),
       { opacity: 0, y: 15, scale: 0.8 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.06 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.06, clearProps: "transform" },
       1.15
     );
 
@@ -177,7 +177,7 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
           {/* Hero content — two columns */}
           <div
             ref={contentRef}
-            className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16"
+            className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 "
           >
             <div className="flex flex-col-reverse lg:flex-row items-center lg:items-center gap-12 lg:gap-16">
               {/* ─── Left Column: Content ─── */}
