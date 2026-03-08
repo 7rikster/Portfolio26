@@ -119,7 +119,7 @@ function Header({ loaded = false }: HeaderProps) {
   return (
     <div
       ref={navContainerRef}
-      className={`fixed  w-[94%] flex justify-center top-2 sm:top-4 z-500 h-12 sm:h-18 border-none transition-all duration-700  `}
+      className={`fixed  w-[94%] flex justify-center top-2 z-500 h-12 sm:h-18 border-none transition-all duration-700  `}
       style={{ opacity: 0, transform: "translateY(-120px)" }}
     >
       <header
