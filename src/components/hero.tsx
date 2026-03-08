@@ -112,7 +112,7 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
     tl.fromTo(
       contentRef.current.querySelectorAll(".hero-cta"),
       { opacity: 0, y: 20, scale: 0.95 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1,clearProps: "transform" },
+      { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1 },
       1.0
     );
 
@@ -120,7 +120,7 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
     tl.fromTo(
       contentRef.current.querySelectorAll(".hero-social"),
       { opacity: 0, y: 15, scale: 0.8 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.06, clearProps: "transform" },
+      { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.06 },
       1.15
     );
 
@@ -254,26 +254,30 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3 mb-8">
-                  <a
-                    href="https://drive.google.com/file/d/13tJvSFVl-PR7gTXxAqjuaXScJB7v19sM/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-cta px-7 py-3 text-xs sm:text-sm tracking-[0.2em] uppercase rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2 opacity-0"
-                    style={{ background: "#1a1410", color: "#f5f0e8" }}
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
-                    Resume
-                  </a>
-                  <a
-                    href="/projects"
-                    className="flex gap-2 flex-row items-center hero-cta px-7 py-3 text-xs sm:text-sm tracking-[0.2em] uppercase rounded-lg border transition-all duration-300 hover:scale-105 opacity-0"
-                    style={{ borderColor: "#1a1410", color: "#1a1410" }}
-                  >
-                    View Work
-                    <MoveRight className="w-4 h-4"/>
-                  </a>
+                  <div className="hero-cta opacity-0">
+                    <a
+                      href="https://drive.google.com/file/d/13tJvSFVl-PR7gTXxAqjuaXScJB7v19sM/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-7 py-3 text-xs sm:text-sm tracking-[0.2em] uppercase rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2"
+                      style={{ background: "#1a1410", color: "#f5f0e8" }}
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                      </svg>
+                      Resume
+                    </a>
+                  </div>
+                  <div className="hero-cta opacity-0">
+                    <a
+                      href="/projects"
+                      className="flex gap-2 flex-row items-center px-7 py-3 text-xs sm:text-sm tracking-[0.2em] uppercase rounded-lg border transition-all duration-300 hover:scale-105"
+                      style={{ borderColor: "#1a1410", color: "#1a1410" }}
+                    >
+                      View Work
+                      <MoveRight className="w-4 h-4"/>
+                    </a>
+                  </div>
                 </div>
 
                 {/* Social icons */}
@@ -284,17 +288,17 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
                     { href: "https://codeforces.com/profile/7rikster", label: "Codeforces", poly: true },
                     { href: "mailto:ribupkashyap@gmail.com", label: "Email", mail: true },
                   ].map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target={social.href.startsWith("mailto:") ? undefined : "_blank"}
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      className="hero-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-0"
-                      style={{ color: "#8a7560", border: "1px solid rgba(26, 20, 16, 0.12)" }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = "#1a1410"; e.currentTarget.style.borderColor = "rgba(26, 20, 16, 0.35)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.color = "#8a7560"; e.currentTarget.style.borderColor = "rgba(26, 20, 16, 0.12)"; }}
-                    >
+                    <div key={social.label} className="hero-social opacity-0">
+                      <a
+                        href={social.href}
+                        target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                        style={{ color: "#8a7560", border: "1px solid rgba(26, 20, 16, 0.12)" }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = "#1a1410"; e.currentTarget.style.borderColor = "rgba(26, 20, 16, 0.35)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = "#8a7560"; e.currentTarget.style.borderColor = "rgba(26, 20, 16, 0.12)"; }}
+                      >
                       {social.mail ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                       ) : social.poly ? (
@@ -304,7 +308,8 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
                       ) : (
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={social.d}/>{social.d2 && <path d={social.d2}/>}</svg>
                       )}
-                    </a>
+                      </a>
+                    </div>
                   ))}
                 </div>
               </div>
