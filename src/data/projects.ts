@@ -55,7 +55,7 @@ export const projects: Project[] = [
         id: 1,
         title: "Expenser - AI-powered personal finance manager",
         slug: "expenser",
-        year: 2025,
+        year: 2026,
 
         tagline: "A modern expense tracking platform for understanding personal spending habits.",
 
