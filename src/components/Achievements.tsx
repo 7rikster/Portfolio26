@@ -135,7 +135,7 @@ export default function Achievements() {
       {/* Section Header */}
       <div ref={headerRef} className="mb-16 flex  flex-col items-center justify-center">
         <h1 className="text-sm tracking-[0.3em] uppercase flex items-center gap-3" style={{ color: "#aaa"}}>- ACHIEVEMENTS</h1>
-        <h1 className="text-2xl md:text-4xl font-semibold tracking-tight p-2 md:p-4 mb-6">My Coding Achievements</h1>
+        <h1 className="text-2xl md:text-4xl font-semibold tracking-tight p-2 md:p-4 mb-6 text-center">My Coding Achievements</h1>
       </div>
 
       {/* Achievement list — always full width */}

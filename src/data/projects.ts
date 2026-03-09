@@ -69,9 +69,10 @@ export const projects: Project[] = [
         highlights: [
             "Full-stack expense tracking application with real-time dashboard insights",
             "Clean and responsive UI built with Next.js and TailwindCSS",
-            "Category-based expense organization for better financial insights",
+            "AI smart categorixation to reduce manual work",
             "Type-safe architecture using TypeScript",
-            "RESTful API for efficient expense CRUD operations"
+            "RESTful API for efficient expense CRUD operations",
+            "Personalized AI insights for better financial decisions"
         ],
 
         techStack: [
@@ -102,69 +103,87 @@ export const projects: Project[] = [
         },
 
         architecture: [
-            {
+          {
             title: "Frontend",
-            description: "Built using Next.js and React to create a responsive user interface. TailwindCSS is used for styling, and client-side state management ensures smooth UI interactions."
-            },
-            {
+            description:
+              "Built using Next.js to create a fast and responsive user interface. TailwindCSS is used for modern styling, while client-side state management ensures smooth and interactive UI experiences."
+          },
+          {
             title: "Backend",
-            description: "Next.js API routes handle expense CRUD operations, authentication, and communication with the database."
-            },
-            {
+            description:
+              "A Node.js and Express.js server handles API requests, business logic, and expense CRUD operations. Clerk is integrated for secure user authentication and session management."
+          },
+          {
             title: "Database",
-            description: "MongoDB stores user data, expense records, and categories with an optimized schema for efficient queries and aggregations."
-            },
-            {
+            description:
+              "Neon (serverless PostgreSQL) is used to store user accounts, expense records, and categories. Prisma ORM manages the database schema and enables type-safe queries and efficient data access."
+          },
+          {
             title: "Deployment",
-            description: "The application is deployed on Vercel with optimized builds and automatic deployments from GitHub."
-            }
+            description:
+              "The frontend is deployed on Vercel for optimized performance and global edge delivery, while the backend services run independently with seamless integration to the database."
+          }
         ],
 
         features: [
             {
             title: "Expense Management",
-            description: "Users can add, edit, and delete expenses while specifying amount, category, and notes."
+            description: "Users can add, edit, and delete expenses while specifying amount, category, and notes, either by typing in natural language or by uploading a receipt."
             },
             {
-            title: "Category-Based Organization",
-            description: "Expenses are organized into categories to help users better understand their spending habits."
+            title: "AI Smart Categorization",
+            description: "Gemini AI automatically categorizes expenses based on transaction descriptions and receipt data."
             },
             {
             title: "Analytics Dashboard",
             description: "Interactive dashboard summarizes total spending and displays insights into user financial behavior."
             },
             {
-            title: "Responsive UI",
-            description: "Fully responsive interface optimized for both desktop and mobile devices."
+            title: "Predictive Spending Forecast",
+            description: "Using historical expense data, the system predicts future spending trends and estimates the user's end-of-month expenses, helping them plan finances more effectively."
+            },
+            {
+            title: "Budget Tracking & Smart Alerts",
+            description: "Users can set monthly spending budgets for different categories. The system monitors expenses in real time and sends alerts when spending approaches or exceeds the defined limits."
             }
         ],
 
-        engineering: [
-            {
-            title: "Component-Based Architecture",
-            description: "The UI was designed using reusable React components to maintain scalability and clean code structure."
-            },
-            {
-            title: "Efficient Data Handling",
-            description: "Backend APIs were structured to minimize redundant queries and efficiently fetch expense data."
-            },
-            {
-            title: "Type-Safe Development",
-            description: "TypeScript was used throughout the project to ensure type safety and reduce runtime errors."
-            }
-        ],
+       engineering: [
+        {
+          title: "Component-Based Architecture",
+          description:
+            "The frontend is built using reusable React components in Next.js, enabling modular development, easier maintenance, and scalable UI architecture."
+        },
+        {
+          title: "Efficient API Design",
+          description:
+            "The Node.js and Express backend exposes structured REST APIs optimized to minimize redundant queries and efficiently fetch expense data."
+        },
+        {
+          title: "Redis Caching Layer",
+          description:
+            "Redis is used as an in-memory caching layer to store frequently accessed data such as user summaries and analytics results, significantly reducing database load and improving response times."
+        },
+        {
+          title: "Type-Safe Development",
+          description:
+            "TypeScript is used across both frontend and backend to ensure type safety, improve developer productivity, and reduce runtime errors."
+        }
+      ],
 
         learnings: [
-            "Building a complete full-stack application using Next.js",
-            "Designing efficient database schemas for financial data",
-            "Structuring scalable React component architectures",
-            "Improving UI/UX for data-driven dashboards"
+          "Building a complete full-stack application using Next.js, Node.js, and Express",
+          "Designing efficient database schemas and managing data access using Prisma with Neon PostgreSQL",
+          "Structuring scalable React component architectures",
+          "Implementing Redis caching to reduce database load and significantly improve API response times",
+          "Integrating AI capabilities using the Gemini API and applying prompt engineering to extract structured data",
         ],
 
         challenges: [
-            "Designing a database structure that supports efficient expense queries",
-            "Maintaining responsive performance with dynamic expense lists",
-            "Structuring reusable components for scalability"
+          "Designing a scalable data model for storing and querying large volumes of expense records efficiently",
+          "Implementing reliable AI receipt parsing using Gemini while ensuring accurate extraction of structured data",
+          "Optimizing API performance and reducing database load using Redis caching for frequently accessed analytics data",
+          "Handling asynchronous background workflows for generating monthly AI insights using event-driven jobs",
         ]
     },
     {

@@ -12,7 +12,7 @@ interface AboutProps {
 export default function About({ showMoreButton }: AboutProps) {
 
     return (
-        <div className="flex flex-col items-center justify-center py-20" >
+        <div className="flex flex-col items-center justify-center py-20 px-6" >
             <motion.div className="flex flex-col items-center justify-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +20,7 @@ export default function About({ showMoreButton }: AboutProps) {
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
                 <h1 className="text-sm tracking-[0.3em] uppercase flex items-center gap-3" style={{ color: "#aaa"}}>- A LITTLE ABOUT ME</h1>
-                <h1 className="text-2xl md:text-4xl font-semibold tracking-tight p-2 md:p-4 mb-6">Building efficient solutions with code</h1>
+                <h1 className="text-2xl md:text-4xl font-semibold tracking-tight p-2 md:p-4 mb-6 text-center">Building efficient solutions with code</h1>
             </motion.div>
             <motion.div className="w-full max-w-3xl text-center flex flex-col gap-3 items-center text-[#aaa]"
                 initial={{ opacity: 0, y: 30 }}
