@@ -63,9 +63,9 @@ const strengths = [
 
 const stats = [
   { value: "1500+", label: "DSA Problems Solved" },
-  { value: "10+", label: "Projects Shipped" },
+  { value: "3+", label: "Projects Shipped" },
   { value: "ICPC", label: "Regionalist" },
-  { value: "3+", label: "Years of Coding" },
+  { value: "2+", label: "Years of Coding" },
 ];
 
 export default function WhyHireMe() {

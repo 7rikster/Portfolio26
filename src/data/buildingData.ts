@@ -20,14 +20,14 @@ export interface LearningTopic {
 export const buildingProjects: BuildingProject[] = [
   {
     id: 1,
-    title: "AI-Powered Blog Creation",
+    title: "AI-Powered Expense Management",
     description:
-      "Transform your ideas into compelling articles in seconds. Professional content creation powered by advanced AI.",
+      "A modern expense management application that helps users track spending, visualize financial habits, and gain smart insights using AI-powered analysis.",
     status: "In Progress",
-    progress: 50,
-    date: "Dec 2025",
-    techStack: ["React.js", "OpenAI API", "TailwindCSS", "Shadcn UI", "Aceternity UI"],
-    link: "https://github.com/7rikster",
+    progress: 30,
+    date: "Feb 2026",
+    techStack: ["Next.js", "Typescript", "Gemini API", "TailwindCSS", "Node.Js", "Redis",  "Prisma", "PostgreSQL"],
+    link: "https://github.com/7rikster/expenser",
   },
   {
     id: 2,
@@ -36,19 +36,9 @@ export const buildingProjects: BuildingProject[] = [
       "Redesigning my portfolio with improved animations and better UX.",
     status: "Almost Done",
     progress: 85,
-    date: "Dec 2025",
-    techStack: ["React", "Framer Motion", "Tailwind"],
-  },
-  {
-    id: 3,
-    title: "Route Mate",
-    description:
-      "Connect with verified travelers heading your way. Share rides, split costs, and make your solo journey safer and more memorable.",
-    status: "In Progress",
-    progress: 60,
-    date: "Dec 2025",
-    techStack: ["Next.js", "Node.js", "MongoDB", "Socket.io"],
-    link: "https://github.com/7rikster",
+    date: "Feb 2025",
+    techStack: ["Next.js", "Framer Motion", "Tailwind CSS", "GSAP"],
+    link: "https://github.com/7rikster/Portfolio26",
   },
 ];
 

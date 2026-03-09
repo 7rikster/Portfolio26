@@ -150,73 +150,78 @@ export default function Achievements() {
               : 1;
 
             return (
-              <div
+              <a 
                 key={achievement.id}
-                ref={(el) => { rowRefs.current[index] = el; }}
-                className="group cursor-pointer"
-                style={{
-                  opacity: rowOpacity,
-                  transition: "opacity 0.4s ease",
-                }}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
-                {/* Top separator line */}
+                href={achievement.link}
+                target="_blank"
+                rel="noopener noreferrer">
                 <div
-                  className="w-full h-px"
+                  ref={(el) => { rowRefs.current[index] = el; }}
+                  className="group cursor-pointer"
                   style={{
-                    background: isHovering && isCurrent
-                      ? "rgba(255,255,255,0.3)"
-                      : "rgba(255,255,255,0.08)",
-                    transition: "background 0.4s ease",
+                    opacity: rowOpacity,
+                    transition: "opacity 0.4s ease",
                   }}
-                />
-
-                <div className="flex items-baseline gap-4 md:gap-8 py-6 md:py-8">
-                  <span
-                    className="text-xs md:text-sm font-mono shrink-0"
-                    style={{ color: "#555", minWidth: "2rem" }}
-                  >
-                    _{String(index + 1).padStart(2, "0")}.
-                  </span>
-
-                  <div className="flex-1 min-w-0">
-                    <h3
-                      className="achievement-title text-3xl md:text-5xl lg:text-7xl leading-none mb-2 transition-colors duration-300 flex items-center gap-2"
-                      style={{
-                        color: isCurrent ? "#e5e5e5" : "#e5e5e5",
-                      }}
-                    >
-                      {achievement.title}
-                      {isCurrent && (
-                        <span
-                          className="inline-block ml-3 text-2xl align-middle"
-                          style={{
-                            opacity: 0,
-                            animation: "fadeSlideIn 0.3s ease forwards",
-                          }}
-                        >
-                          <ExternalLink />
-                        </span>
-                      )}
-                    </h3>
-                    <p
-                      className="text-xs md:text-sm max-w-xl leading-relaxed"
-                      style={{ color: "#666" }}
-                    >
-                      {achievement.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bottom separator for last item */}
-                {index === achievements.length - 1 && (
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {/* Top separator line */}
                   <div
                     className="w-full h-px"
-                    style={{ background: "rgba(255,255,255,0.08)" }}
+                    style={{
+                      background: isHovering && isCurrent
+                        ? "rgba(255,255,255,0.3)"
+                        : "rgba(255,255,255,0.08)",
+                      transition: "background 0.4s ease",
+                    }}
                   />
-                )}
-              </div>
+
+                  <div className="flex items-baseline gap-4 md:gap-8 py-6 md:py-8">
+                    <span
+                      className="text-xs md:text-sm font-mono shrink-0"
+                      style={{ color: "#555", minWidth: "2rem" }}
+                    >
+                      _{String(index + 1).padStart(2, "0")}.
+                    </span>
+
+                    <div className="flex-1 min-w-0">
+                      <h3
+                        className="achievement-title text-3xl md:text-5xl lg:text-6xl leading-none mb-2 transition-colors duration-300 flex items-center gap-2"
+                        style={{
+                          color: isCurrent ? "#e5e5e5" : "#e5e5e5",
+                        }}
+                      >
+                        {achievement.title}
+                        {isCurrent && (
+                          <span
+                            className="inline-block ml-3 text-2xl align-middle"
+                            style={{
+                              opacity: 0,
+                              animation: "fadeSlideIn 0.3s ease forwards",
+                            }}
+                          >
+                            <ExternalLink />
+                          </span>
+                        )}
+                      </h3>
+                      <p
+                        className="text-xs md:text-sm max-w-xl leading-relaxed"
+                        style={{ color: "#666" }}
+                      >
+                        {achievement.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom separator for last item */}
+                  {index === achievements.length - 1 && (
+                    <div
+                      className="w-full h-px"
+                      style={{ background: "rgba(255,255,255,0.08)" }}
+                    />
+                  )}
+                </div>
+              </a>
             );
           })}
         </div>

@@ -5,7 +5,8 @@ import Loader from "@/components/Loader";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { MoveRight } from "lucide-react";
+import { MoveRight, CodeXml } from "lucide-react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,16 +51,35 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
   useGSAP(() => {
     if (!heroSectionRef.current) return;
 
-    gsap.to(heroSectionRef.current, {
-      padding: "36px",
-      borderRadius: "1rem",
-      scrollTrigger: {
-        trigger: heroSectionRef.current,
-        start: "top top",
-        end: "+=100",
-        scrub: 0.3,
-      },
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      gsap.to(heroSectionRef.current, {
+        padding: "36px",
+        borderRadius: "1rem",
+        scrollTrigger: {
+          trigger: heroSectionRef.current,
+          start: "top top",
+          end: "+=100",
+          scrub: 0.3,
+        },
+      });
     });
+
+    mm.add("(max-width: 767px)", () => {
+      gsap.to(heroSectionRef.current, {
+        padding: "16px",
+        borderRadius: "1rem",
+        scrollTrigger: {
+          trigger: heroSectionRef.current,
+          start: "top top",
+          end: "+=100",
+          scrub: 0.3,
+        },
+      });
+    });
+
+    return () => mm.revert(); // clean up
   }, []);
 
   // Staggered entrance animations for hero content
@@ -285,10 +305,11 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
                   {[
                     { href: "https://github.com/7rikster", label: "GitHub", d: "M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4", d2: "M9 18c-4.51 2-5-2-7-2" },
                     { href: "https://linkedin.com/in/priyanshu-kashyap-8196a928a", label: "LinkedIn", d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z", rect: true },
+                    { href: "https://leetcode.com/u/ribupkashyap/", label: "LeetCode", leetcode: true },
                     { href: "https://codeforces.com/profile/7rikster", label: "Codeforces", poly: true },
                     { href: "mailto:ribupkashyap@gmail.com", label: "Email", mail: true },
                   ].map((social) => (
-                    <div key={social.label} className="hero-social opacity-0">
+                    <div key={social.label} className="hero-social opacity-0 relative group">
                       <a
                         href={social.href}
                         target={social.href.startsWith("mailto:") ? undefined : "_blank"}
@@ -299,7 +320,9 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
                         onMouseEnter={(e) => { e.currentTarget.style.color = "#1a1410"; e.currentTarget.style.borderColor = "rgba(26, 20, 16, 0.35)"; }}
                         onMouseLeave={(e) => { e.currentTarget.style.color = "#8a7560"; e.currentTarget.style.borderColor = "rgba(26, 20, 16, 0.12)"; }}
                       >
-                      {social.mail ? (
+                      {social.leetcode ? (
+                        <CodeXml size={17} />
+                      ) : social.mail ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                       ) : social.poly ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -309,6 +332,12 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={social.d}/>{social.d2 && <path d={social.d2}/>}</svg>
                       )}
                       </a>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1.5 bg-[#1a1410] text-[#f5f0e8] text-[0.65rem] font-medium tracking-[0.1em] uppercase rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-all duration-300 whitespace-nowrap z-20 shadow-lg translate-y-2 group-hover:translate-y-0">
+                        {social.label}
+                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1a1410] rotate-45" />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -316,25 +345,12 @@ export default function Hero({ onLoaderComplete, skipLoader = false }: HeroProps
 
               {/* ─── Right Column: Photo ─── */}
               <div className="flex-shrink-0 w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-96 lg:w-[22rem] lg:h-[28rem] relative">
-                {/* Decorative frame offset */}
-                <div
-                  className="hero-photo-frame absolute inset-0 rounded-2xl translate-x-3 translate-y-3 opacity-0"
-                  style={{ border: "1.5px solid rgba(26, 20, 16, 0.12)" }}
-                />
                 {/* Photo container */}
                 <div
                   className="hero-photo relative w-full h-full rounded-2xl overflow-hidden opacity-0"
                   style={{ background: "rgba(26, 20, 16, 0.06)" }}
                 >
-                  {/* Replace with: <Image src="/photo.jpg" alt="Priyanshu Kashyap" fill className="object-cover" /> */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span
-                      className="text-6xl sm:text-7xl font-bold opacity-[0.08]"
-                      style={{ fontFamily: "var(--font-oswald), sans-serif", color: "#1a1410" }}
-                    >
-                      PK
-                    </span>
-                  </div>
+                  <Image src="/hero.jpeg" alt="Priyanshu Kashyap" fill className="object-cover" />
                 </div>
               </div>
             </div>

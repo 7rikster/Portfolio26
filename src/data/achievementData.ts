@@ -3,6 +3,7 @@ export interface Achievement {
   title: string;
   description: string;
   imageUrl: string;
+  link: string;
 }
 
 export const achievements: Achievement[] = [
@@ -10,35 +11,32 @@ export const achievements: Achievement[] = [
     id: 1,
     title: "ICPC Regionalist",
     description:
-      "Qualified for the ICPC Asia Regional Contest, competing against top programmers across Asia.",
-    imageUrl: "/achievements/icpc.jpg",
+      "Qualified for the ICPC Asia Amritapuri Regional Contest 2025, competing against top programmers across Asia.",
+    imageUrl: "/achievements/icpc.png",
+    link: "https://drive.google.com/file/d/1EpNfXFLPKAPjuiLjTJXxTChwVD34eMhb/view"
   },
   {
     id: 2,
-    title: "IICPC Finalist",
+    title: "IICPC Codefest",
     description:
-      "Secured a spot in the IICPC National Finals, showcasing strong problem-solving skills.",
-    imageUrl: "/achievements/iicpc.jpg",
+      "Qualified for the IICPC Codefest Regional Contest 2026 securing a rank of 466 among 13k+ participants.",
+    imageUrl: "/achievements/iicpc.jpeg",
+    link: "https://drive.google.com/file/d/1tb5pXWdJE99-3RNd7n6JQxPyYzB0HJtc/view"
   },
   {
     id: 3,
-    title: "Smart India Hackathon",
+    title: "Meta Hacker Cup",
     description:
-      "Won the Smart India Hackathon, building innovative solutions for real-world problems.",
-    imageUrl: "/achievements/sih.jpg",
+      "Secured a rank of 1874 in Round 2 of the prestigious Meta Hacker Cup.",
+    imageUrl: "/achievements/meta.png",
+    link: "https://drive.google.com/file/d/1AXzqPmcT3lwLYBVTdIAI-R3L9REw8Mce/view"
   },
   {
     id: 4,
-    title: "CodeChef 5★",
+    title: "Codeforces Expert",
     description:
       "Achieved 5-star rating on CodeChef with a peak rating of 2100+, placing in the top percentile globally.",
-    imageUrl: "/achievements/codechef.jpg",
-  },
-  {
-    id: 5,
-    title: "Google Summer of Code",
-    description:
-      "Selected as a contributor for GSoC, working on open-source projects with global impact.",
-    imageUrl: "/achievements/gsoc.jpg",
+    imageUrl: "/achievements/codeforces.png",
+    link: "https://codeforces.com/profile/7rikster"
   },
 ];

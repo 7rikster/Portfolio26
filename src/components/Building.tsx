@@ -116,53 +116,59 @@ export default function Building() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-min">
         {/* ── Featured Building Card (spans 4 cols) ── */}
         {buildingProjects[0] && (
-          <motion.div
-            className={`md:col-span-4 row-span-1 p-6 sm:p-8 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.14] transition-all duration-400 group ${getAccent(buildingProjects[0].status).glow}`}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            custom={0}
-          >
-            <div className="flex items-start justify-between gap-4 mb-5">
-              <div className="flex items-center gap-3">
-                {/* Pulsing live dot */}
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-50 ${getAccent(buildingProjects[0].status).dot}`} />
-                  <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${getAccent(buildingProjects[0].status).dot}`} />
-                </span>
-                <span className="text-xs font-medium text-[#888] tracking-wide uppercase">
-                  {buildingProjects[0].status}
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-xs text-[#555]">{buildingProjects[0].date}</span>
-                {buildingProjects[0].link && (
-                  <a href={buildingProjects[0].link} target="_blank" rel="noopener noreferrer" className="text-[#555] hover:text-white transition-colors">
-                    <ExternalLink size={14} />
-                  </a>
-                )}
-              </div>
-            </div>
-
-            <div className="flex flex-col-reverse sm:flex-row sm:items-end sm:justify-between gap-5">
-              <div className="flex-1 min-w-0">
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#e5e5e5] mb-3 group-hover:text-white transition-colors">
-                  {buildingProjects[0].title}
-                </h3>
-                <p className="text-sm text-[#888] leading-relaxed mb-5 max-w-lg">
-                  {buildingProjects[0].description}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {buildingProjects[0].techStack.map((tech) => (
-                    <span key={tech} className="text-[0.65rem] px-2.5 py-0.5 rounded-full border border-white/[0.08] text-[#777] bg-white/[0.02]">
-                      {tech}
+          
+            <motion.div
+              className={`md:col-span-4 row-span-1 p-6 sm:p-8 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.14] transition-all duration-400 group ${getAccent(buildingProjects[0].status).glow}`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+              custom={0}
+            >
+              <a href={buildingProjects[0].link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+              <div className="flex items-start justify-between gap-4 mb-5">
+                <div className="flex items-center gap-3">
+                  {/* Pulsing live dot */}
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-50 ${getAccent(buildingProjects[0].status).dot}`} />
+                    <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${getAccent(buildingProjects[0].status).dot}`} />
+                  </span>
+                  <span className="text-xs font-medium text-[#888] tracking-wide uppercase">
+                    {buildingProjects[0].status}
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs text-[#555]">{buildingProjects[0].date}</span>
+                  {buildingProjects[0].link && (
+                    <span className="text-[#555] hover:text-white transition-colors">
+                      <ExternalLink size={14} />
                     </span>
-                  ))}
+                  )}
                 </div>
               </div>
-              <ProgressRing progress={buildingProjects[0].progress} color={getAccent(buildingProjects[0].status).ring} size={64} />
+
+              <div className="flex flex-col-reverse sm:flex-row sm:items-end sm:justify-between gap-5">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#e5e5e5] mb-3 group-hover:text-white transition-colors">
+                    {buildingProjects[0].title}
+                  </h3>
+                  <p className="text-sm text-[#888] leading-relaxed mb-5 max-w-lg">
+                    {buildingProjects[0].description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {buildingProjects[0].techStack.map((tech) => (
+                      <span key={tech} className="text-[0.65rem] px-2.5 py-0.5 rounded-full border border-white/[0.08] text-[#777] bg-white/[0.02]">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <ProgressRing progress={buildingProjects[0].progress} color={getAccent(buildingProjects[0].status).ring} size={64} />
             </div>
+          </a>
           </motion.div>
         )}
 
@@ -210,6 +216,10 @@ export default function Building() {
               variants={fadeUp}
               custom={i + 2}
             >
+              <a href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
               {/* Header row */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -224,9 +234,9 @@ export default function Building() {
                 </div>
                 <div className="flex items-center gap-2">
                   {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#555] hover:text-white transition-colors">
+                    <span className="text-[#555] hover:text-white transition-colors">
                       <ExternalLink size={13} />
-                    </a>
+                    </span>
                   )}
                 </div>
               </div>
@@ -249,6 +259,7 @@ export default function Building() {
                 </div>
                 <ProgressRing progress={project.progress} color={accent.ring} />
               </div>
+              </a>
             </motion.div>
           );
         })}

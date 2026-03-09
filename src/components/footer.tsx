@@ -15,7 +15,7 @@ const fadeUp: Variants = {
   }),
 };
 import Link from "@/components/Link";
-import { Github, Linkedin, Mail, Code, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Mail, Code, ArrowUpRight, ArrowUp, CodeXml } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -41,9 +41,9 @@ const socials = [
     icon: <Code size={18} />,
   },
   {
-    label: "Email",
-    href: "mailto:ribupkashyap@gmail.com",
-    icon: <Mail size={18} />,
+    label: "Leetcode",
+    href: "https://leetcode.com/u/ribupkashyap/",
+    icon: <CodeXml size={18} />,
   },
 ];
 
@@ -154,6 +154,7 @@ export default function Footer() {
                   Open to opportunities
                 </span>
               </div>
+              
             </motion.div>
           </motion.div>
         </div>
@@ -178,9 +179,20 @@ export default function Footer() {
               Priyanshu Kashyap
             </span>
           </div>
+          <div className="flex items-center gap-4">
+
           <p className="text-xs" style={{ color: "#8a7560" }}>
             © {currentYear} · Designed & built with care
           </p>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="hidden md:flex cursor-pointer flex items-center justify-center p-2 rounded-full transition-colors hover:bg-black/5"
+            style={{ color: "#1a1410" }}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={20} />
+          </button>
+          </div>
         </motion.div>
       </motion.div>
     </footer>
