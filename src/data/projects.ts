@@ -80,15 +80,12 @@ export const projects: Project[] = [
 
         links: {
             github: "https://github.com/7rikster/expenser",
-            live: "https://expenser.vercel.app"
         },
 
         heroImage: "/projects/expenser/hero.png",
 
         images: [
             "/projects/expenser/img1.png",
-            "/projects/expenser/img2.png",
-            "/projects/expenser/img3.png"
         ],
 
         overview: {
