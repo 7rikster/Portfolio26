@@ -4,11 +4,11 @@ interface Project {
   slug: string;
   year: number;
 
-  tagline: string; // one powerful sentence
-  description: string; // short overview
+  tagline: string; 
+  description: string; 
 
-  role: string; // what YOU did
-  duration: string; // e.g. "2 weeks"
+  role: string;
+  duration?: string;
 
   featured: boolean;
 
@@ -62,7 +62,6 @@ export const projects: Project[] = [
         description: "Expenser is a full-stack expense tracker that allows users to record, categorize, and analyze their spending through a clean dashboard and intuitive interface.",
 
         role: "Full Stack Developer",
-        duration: "2 weeks",
 
         featured: true,
 
@@ -192,10 +191,10 @@ export const projects: Project[] = [
       slug: "xplorer",
       year: 2025,
 
-      tagline: "Discover places, plan journeys, and explore the world seamlessly.",
+      tagline: "AI-powered travel discovery and collaborative trip planning platform.",
 
       description:
-        "Xplorer is a modern travel exploration platform that helps users discover destinations, explore attractions, and plan trips with a visually rich and interactive interface.",
+        "Xplorer is a full-stack travel discovery and planning platform that enables users to explore destinations worldwide, generate AI-powered itineraries, collaborate on trips through real-time chat, and discover places based on mood and preferences.",
 
       role: "Full Stack Developer",
       duration: "3 weeks",
@@ -204,16 +203,23 @@ export const projects: Project[] = [
 
       techStack: [
         "Next.js",
+        "Node.js",
+        "Express",
         "TypeScript",
         "TailwindCSS",
-        "GSAP",
-        "React",
-        "Map APIs",
+        "Prisma",
+        "MongoDB",
+        "Firebase Auth",
+        "WebSockets",
+        "Gemini API",
+        "Stripe",
+        "Docker",
+        "GitHub Actions"
       ],
 
       links: {
         github: "https://github.com/7rikster/xplorer",
-        live: "https://xplorer.vercel.app",
+        live: "https://xplorer-eight.vercel.app/",
       },
 
       heroImage: "/projects/xplorer/hero.png",
@@ -226,99 +232,141 @@ export const projects: Project[] = [
       ],
 
       highlights: [
-        "Interactive destination exploration interface",
-        "Smooth page transitions using GSAP",
-        "Fully responsive modern UI",
-        "Fast navigation using Next.js routing",
-        "Modular architecture for scalability",
+        "AI-powered travel itinerary generation using Gemini API",
+        "Real-time group chat for collaborative trip planning using WebSockets",
+        "Mood-based destination recommendations powered by AI",
+        "Integrated Stripe payments for premium travel features",
+        "Containerized deployment using Docker with CI/CD pipelines via GitHub Actions"
       ],
 
       overview: {
         problem:
-          "Travelers often rely on multiple fragmented platforms to discover destinations, explore attractions, and plan their journeys.",
+          "Travel planning typically requires using multiple disconnected platforms for discovering destinations, planning itineraries, and collaborating with friends.",
 
         solution:
-          "Xplorer provides a unified platform where users can explore destinations, view curated attractions, and navigate through a visually immersive interface designed for discovery.",
+          "Xplorer provides a unified platform where users can explore destinations, generate AI-powered travel plans, chat with friends in real time, and collaboratively organize trips.",
 
         impact: [
-          "Simplified destination discovery",
-          "Improved user engagement through interactive UI",
-          "Faster navigation with optimized frontend architecture",
+          "Simplifies travel planning through a unified platform",
+          "Improves collaboration through real-time trip communication",
+          "Provides personalized travel recommendations using AI"
         ],
       },
 
       architecture: [
         {
-          title: "Component Based UI",
+          title: "Client Layer",
           description:
-            "Built using reusable React components to ensure maintainability and scalability of the interface.",
+            "The frontend is built using Next.js and TypeScript to deliver a fast, responsive user interface with TailwindCSS for modern styling."
         },
         {
-          title: "Static Data Layer",
+          title: "API Layer",
           description:
-            "Project and destination data are managed using TypeScript files instead of a database for simplicity and fast builds.",
+            "A Node.js and Express server exposes REST APIs responsible for travel data management, itinerary generation requests, and chat session handling."
         },
         {
-          title: "Next.js Routing",
+          title: "Authentication Layer",
           description:
-            "Dynamic routing enables seamless navigation between destinations and detail pages.",
+            "Firebase Authentication secures user sign-in, session management, and protected routes."
         },
+        {
+          title: "AI Services",
+          description:
+            "Gemini API powers AI itinerary generation and mood-based travel recommendations to personalize user travel planning."
+        },
+        {
+          title: "Real-Time Communication",
+          description:
+            "WebSockets enable real-time group chat allowing users to collaborate and communicate while planning trips."
+        },
+        {
+          title: "Data Layer",
+          description:
+            "MongoDB stores user data, destinations, and trip information while Prisma ORM manages database interactions."
+        },
+        {
+          title: "Infrastructure",
+          description:
+            "The application is containerized using Docker and uses GitHub Actions for automated CI/CD pipelines including build, testing, and deployment."
+        }
       ],
 
       features: [
         {
-          title: "Destination Discovery",
+          title: "AI Travel Itinerary Generation",
           description:
-            "Users can explore curated travel destinations with detailed information and images.",
+            "Users can generate personalized travel itineraries based on destination and preferences using Gemini AI."
         },
         {
-          title: "Interactive UI",
+          title: "Mood-Based Destination Discovery",
           description:
-            "Smooth animations and transitions enhance the user experience and make exploration engaging.",
+            "Users can discover travel destinations tailored to their mood such as adventure, relaxation, or cultural exploration."
         },
         {
-          title: "Responsive Design",
+          title: "Real-Time Group Chat",
           description:
-            "Fully optimized for desktop, tablet, and mobile devices.",
+            "WebSocket-powered group chat enables travelers to collaborate and discuss trip plans in real time."
         },
         {
-          title: "Fast Page Navigation",
+          title: "Secure Authentication",
           description:
-            "Next.js optimized routing ensures quick transitions between pages.",
+            "Firebase Auth ensures secure user authentication and protected access to personal travel plans."
         },
+        {
+          title: "Payments Integration",
+          description:
+            "Stripe integration enables users to access premium travel features and services."
+        },
+        {
+          title: "Responsive Travel Interface",
+          description:
+            "Fully responsive design ensures seamless travel planning across desktop, tablet, and mobile devices."
+        }
       ],
 
       engineering: [
         {
-          title: "Performance Optimization",
+          title: "Real-Time Communication Architecture",
           description:
-            "Optimized images and efficient rendering techniques were used to maintain fast loading times.",
+            "Implemented WebSocket-based communication to enable low-latency real-time chat between trip participants."
         },
         {
-          title: "Animation Architecture",
+          title: "AI Integration",
           description:
-            "GSAP animations were structured carefully to avoid layout shifts and ensure smooth transitions.",
+            "Designed structured prompts and API flows to integrate Gemini AI for itinerary generation and travel recommendations."
         },
         {
-          title: "Clean Code Structure",
+          title: "Database Management",
           description:
-            "Implemented modular folder structure and TypeScript types to improve maintainability.",
+            "Used Prisma ORM with MongoDB to maintain a clean schema and efficient querying for trip and user data."
         },
+        {
+          title: "CI/CD Automation",
+          description:
+            "Implemented GitHub Actions pipelines to automate testing, building, and deployment processes."
+        },
+        {
+          title: "Containerized Deployment",
+          description:
+            "Docker was used to containerize the application ensuring consistent environments across development and deployment."
+        }
       ],
 
       learnings: [
-        "Designing scalable component architectures in React",
-        "Implementing advanced UI animations with GSAP",
-        "Structuring large frontend projects effectively",
-        "Improving UX through motion and visual hierarchy",
+        "Building a full-stack platform using Next.js, Node.js, and Express",
+        "Implementing real-time communication systems using WebSockets",
+        "Integrating generative AI APIs for personalized travel recommendations",
+        "Designing CI/CD pipelines with GitHub Actions",
+        "Containerizing full-stack applications using Docker"
       ],
 
       challenges: [
-        "Designing smooth animations without impacting performance",
-        "Maintaining clean component structure as the project grew",
-        "Balancing visual richness with fast loading times",
+        "Managing real-time WebSocket connections while maintaining application scalability",
+        "Designing reliable prompts and response parsing for AI-generated itineraries",
+        "Structuring backend APIs to support both AI workflows and real-time chat",
+        "Maintaining consistent environments across development and deployment using Docker"
       ],
-  },
+    },
   {
     id: 3,
     title: "Learn.com",
@@ -337,19 +385,19 @@ export const projects: Project[] = [
     featured: true,
 
     techStack: [
-      "Next.js",
-      "TypeScript",
+      "React",
+      "JavaScript",
       "TailwindCSS",
       "Node.js",
       "Express",
       "MongoDB",
-      "Stripe",
+      "PayPal",
       "Cloudinary",
     ],
 
     links: {
       github: "https://github.com/7rikster/Learn.com",
-      live: "https://learn-com.vercel.app",
+      live: "https://learn-com-2.onrender.com/",
     },
 
     heroImage: "/projects/learn/hero.png",
@@ -357,6 +405,7 @@ export const projects: Project[] = [
     images: [
       "/projects/learn/1.png",
       "/projects/learn/2.png",
+      "/projects/learn/6.png",
       "/projects/learn/3.png",
       "/projects/learn/4.png",
     ],
@@ -387,7 +436,7 @@ export const projects: Project[] = [
       {
         title: "Frontend Application",
         description:
-          "Built with Next.js and TypeScript to create a fast and scalable user interface for browsing courses and learning content.",
+          "Built with React and JavaScript to create a fast and scalable user interface for browsing courses and learning content.",
       },
       {
         title: "Backend API",
@@ -483,7 +532,6 @@ export const projects: Project[] = [
     featured: true,
 
     techStack: [
-      "Next.js",
       "React",
       "TypeScript",
       "TailwindCSS",
@@ -491,8 +539,8 @@ export const projects: Project[] = [
     ],
 
     links: {
-      github: "https://github.com/yourusername/awwwards",
-      live: "https://awwwards-clone.vercel.app",
+      github: "https://github.com/7rikster/Awwwards",
+      live: "https://awwwards-rho.vercel.app/",
     },
 
     heroImage: "/projects/awwwards/hero.png",
@@ -501,7 +549,6 @@ export const projects: Project[] = [
       "/projects/awwwards/1.png",
       "/projects/awwwards/2.png",
       "/projects/awwwards/3.png",
-      "/projects/awwwards/4.png",
     ],
 
     highlights: [

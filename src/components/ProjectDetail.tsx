@@ -13,7 +13,7 @@ interface Project {
   tagline: string;
   description: string;
   role: string;
-  duration: string;
+  duration?: string;
   featured: boolean;
   techStack: string[];
   links: { github?: string; live?: string };
@@ -107,7 +107,11 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 <span className="w-8 h-px bg-[#333]" />
                 <span className="text-sm text-[#888]">{project.role}</span>
                 <span className="w-8 h-px bg-[#333]" />
-                <span className="text-sm text-[#888]">{project.duration}</span>
+                {
+                  project.duration && (
+                    <span className="text-sm text-[#888]">{project.duration}</span>
+                  )
+                }
             </div>
             <div className="flex items-center gap-4 hidden md:flex">
                 {project.links.live && (
