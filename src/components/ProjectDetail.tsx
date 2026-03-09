@@ -1,7 +1,7 @@
 "use client";
 
 import { useScroll, useSpring, motion, type Variants } from "framer-motion";
-import Link from "next/link";
+import Link from "@/components/Link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 

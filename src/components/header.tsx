@@ -7,7 +7,7 @@ import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 import { usePathname, useRouter } from "next/navigation";
 import { HeaderContents } from "@/lib/config";
-import Link from "next/link";
+import Link from "@/components/Link";
 import {
   Sheet,
   SheetClose,

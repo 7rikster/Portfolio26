@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { MoveRight } from "lucide-react";
 import { Button } from "./ui/button";
 

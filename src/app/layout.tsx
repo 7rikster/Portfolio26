@@ -4,6 +4,7 @@ import { Oswald } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import PageTransition from "@/components/pageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,8 +38,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} antialiased bg-background text-foreground selection:bg-purple-500/30`}
       >
         <Header />
-        {children}
-        <Footer/>
+        <PageTransition>
+          {children}
+          <Footer/>
+        </PageTransition>
       </body>
     </html>
   );

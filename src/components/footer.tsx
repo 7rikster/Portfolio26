@@ -14,7 +14,7 @@ const fadeUp: Variants = {
     },
   }),
 };
-import Link from "next/link";
+import Link from "@/components/Link";
 import { Github, Linkedin, Mail, Code, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
